@@ -2,8 +2,6 @@ from datetime import date
 
 from pydantic import BaseModel, HttpUrl
 from sqlmodel import Field, SQLModel
-from sqlalchemy import Column
-from sqlalchemy.dialects import postgresql
 
 from .enums import ImportanceLevel, FileType, DocumentCategory, ActiveStatus
 
@@ -54,15 +52,4 @@ class Document(SQLModel, table=True):
     reading_time_minutes: int
     importance: ImportanceLevel
     category: DocumentCategory
-    # need to tell sqlmodel to explicitly use the enum value since we have different language value for it
     is_active: ActiveStatus
-
-    # is_active: ActiveStatus = Field(
-    #     sa_column=Column(
-    #         postgresql.ENUM(
-    #             ActiveStatus,
-    #             name="activestatus",
-    #             values_callable=lambda enum: [member.value for member in enum],
-    #         )
-    #     )
-    # )
