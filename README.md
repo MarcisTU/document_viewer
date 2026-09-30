@@ -38,7 +38,7 @@ Datu glabāšanai tiek izmantots **PostgreSQL**, kas tiek palaists Docker kontei
 docker compose up -d postgres
 ```
 
-> **Pamatojums:** PostgreSQL izmantošana Docker konteinerī atvieglo projekta lokālo palaišanu un testēšanu, kā arī nodrošina vidi, kas ir tuvāka tipiskai produkcijas konfigurācijai Linux serverī.
+> **Pamatojums:** PostgreSQL izmantošana iekš Docker, kā datu glabātuvi, atvieglo projekta lokālo izstrādi un testēšanu, kā arī nodrošina vidi, kas ir tuvāka tipiskai produkcijas konfigurācijai Linux serverī.
 
 ---
 
