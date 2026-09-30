@@ -269,6 +269,7 @@ function resetFilters() {
 }
 
 
+// Uzspiežot uz kolonas nosaukuma var to sakārtot augošā/dilstošā secībā
 document.querySelectorAll("th[data-sort]").forEach(th => {
     th.addEventListener("click", () => {
         const field = th.dataset.sort;
