@@ -18,6 +18,7 @@ app = FastAPI(
     },
 )
 
+# Lai frontend risinājums varētu sasniegt un piekļūt backend API
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
