@@ -68,7 +68,7 @@ Tiek simulēta datu saņemšana no hipotētiska attālināta XML avota un iegūt
 uv run python -m data.seed_service
 ```
 
-Seed serviss:
+Darbības princips:
 
 1. ģenerē testa dokumentu datus;
 2. izveido pieprasīto XML struktūru;
