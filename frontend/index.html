@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML dokumentu serviss</title>
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>XML dokumentu serviss</h1>
+            <p class="subtitle">
+                Dokumentu pārlūkošana un filtrēšana
+            </p>
+        </header>
+
+        <section class="controls">
+            <div class="search-container">
+                <label for="search">Meklēt dokumentu</label>
+                <input
+                    id="search"
+                    type="search"
+                    placeholder="Meklēt pēc nosaukuma vai apraksta..."
+                >
+            </div>
+
+            <div>
+                <label for="category">Kategorija</label>
+                <select id="category">
+                    <option value="">Visas kategorijas</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="importance">Svarīgums</label>
+                <select id="importance">
+                    <option value="">Visi līmeņi</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="file-type">Faila tips</label>
+                <select id="file-type">
+                    <option value="">Visi tipi</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="active">Statuss</label>
+                <select id="active">
+                    <option value="">Visi</option>
+                    <option value="true">Aktīvi</option>
+                    <option value="false">Neaktīvi</option>
+                </select>
+            </div>
+
+            <button id="refresh" type="button">
+                Atsvaidzināt
+            </button>
+        </section>
+
+        <div id="status"></div>
+
+        <section class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th data-sort="name">Nosaukums</th>
+                        <th data-sort="responsible_unit">Atbildīgā vienība</th>
+                        <th data-sort="creation_date">Izveidots</th>
+                        <th data-sort="file_type">Faila tips</th>
+                        <th data-sort="reading_time_minutes">Lasīšanas laiks</th>
+                        <th data-sort="importance">Svarīgums</th>
+                        <th data-sort="category">Kategorija</th>
+                        <th data-sort="is_active">Statuss</th>
+                    </tr>
+                </thead>
+                <tbody id="documents"></tbody>
+            </table>
+        </section>
+
+        <div id="empty" class="empty hidden">
+            Neviens dokuments neatbilst izvēlētajiem filtriem.
+        </div>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
