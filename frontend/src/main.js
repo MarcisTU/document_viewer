@@ -300,6 +300,7 @@ document.querySelectorAll("th[data-sort]").forEach(th => {
 });
 
 
+// Notīra filtrus un atjauno sākotnējo dokumentu skatu
 refreshButton.addEventListener("click", () => {
     resetFilters();
     fetchDocuments();
