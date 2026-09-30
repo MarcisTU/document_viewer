@@ -9,7 +9,7 @@ Lai palaistu projektu lokāli, nepieciešams:
 * **Python 3.12**
 * **uv**
 * **Docker / Docker Compose**
-* **Node.js** un npm — frontend palaišanai
+* **Node.js** un npm frontend palaišanai
 
 ---
 
@@ -197,7 +197,7 @@ uv run pytest
 Projekta struktūra:
 
 ```text
-.
+. 
 ├── backend/
 │   ├── data/
 │   │   ├── __init__.py
@@ -226,7 +226,7 @@ Projekta struktūra:
 │   ├── .gitignore
 │   ├── pyproject.toml
 │   └── uv.lock
-│
+│ 
 └── frontend/
     ├── src/
     │   ├── main.js
