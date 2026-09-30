@@ -23,7 +23,6 @@ Izveido Python virtuālo vidi un instalē visas projektam nepieciešamās biblio
 
 ```bash
 cd backend
-
 uv sync
 ```
 
@@ -56,6 +55,7 @@ Migrācijas izveidošanai projekta izstrādes laikā tika izmantots:
 ```bash
 uv run alembic revision --autogenerate -m "datu glabātuves struktūras izveide"
 ```
+
 > Šo komandu projekta pirmreizējās palaišanas laikā **nav nepieciešams izpildīt**, jo nepieciešamā migrācija jau ir iekļauta koda repozitorijā.
 
 ---
@@ -97,25 +97,29 @@ Backend nodrošina piekļuvi saglabātajiem dokumentiem, izmantojot REST API.
 
 # 2. Frontend
 
-Frontend komandas jāizpilda no `frontend/` direktorijas:
+Frontend ir izveidots, izmantojot **Vite** un vanilla JavaScript.
+
+Visas tālāk norādītās komandas jāizpilda no `frontend/` direktorijas:
 
 ```bash
 cd frontend
-```
-
-### 2.1. Frontend bibliotēku instalēšana
-
-```bash
 npm install
-```
-
-### 2.2. Frontend palaišana
-
-```bash
 npm run dev
 ```
 
-Pēc palaišanas terminālī tiks parādīta adrese, kurā pieejama frontend lietotne.
+Pēc `npm run dev` izpildes terminālī tiks parādīta frontend lietotnes adrese, piemēram:
+
+```text
+http://localhost:5173/
+```
+
+Frontend ielādē dokumentus no backend API un nodrošina:
+
+* dokumentu attēlošanu tabulā;
+* meklēšanu pēc nosaukuma un apraksta;
+* filtrēšanu pēc kategorijas, svarīguma, faila tipa un statusa;
+* šķirošanu pēc tabulas laukiem;
+* datu atsvaidzināšanu (refresh).
 
 ---
 
@@ -139,18 +143,19 @@ Visas komandas jāizpilda no `backend/` direktorijas:
 
 ```bash
 cd backend
-
 uv run pytest
 ```
 
 Veiksmīgas izpildes gadījumā terminālī tiks parādīts līdzīgs rezultāts:
-```bash
+
+```text
 ...
 4 passed in 1.15s
 ```
 
+---
 
-#  4. Īsā palaišanas instrukcija
+# 4. Īsā palaišanas instrukcija
 
 Ja nepieciešams ātri palaist visu projektu no jaunas vides:
 
@@ -160,13 +165,9 @@ Ja nepieciešams ātri palaist visu projektu no jaunas vides:
 cd backend
 
 uv sync
-
 docker compose up -d postgres
-
 uv run alembic upgrade head
-
 uv run python -m data.seed_service
-
 uv run uvicorn app:app --host 0.0.0.0 --port 8081
 ```
 
@@ -176,9 +177,7 @@ Atsevišķā terminālī:
 
 ```bash
 cd frontend
-
 npm install
-
 npm run dev
 ```
 
@@ -188,7 +187,6 @@ Atsevišķā terminālī:
 
 ```bash
 cd backend
-
 uv run pytest
 ```
 
@@ -230,6 +228,12 @@ Projekta struktūra:
 │   └── uv.lock
 │
 └── frontend/
-    ├── ...
-    └── package.json
+    ├── src/
+    │   ├── main.js
+    │   └── style.css
+    ├── .gitignore
+    ├── index.html
+    ├── package.json
+    ├── package-lock.json
+    └── vite.config.js
 ```
