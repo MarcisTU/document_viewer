@@ -30,7 +30,7 @@ uv sync
 
 ---
 
-### 1.2. PostgreSQL palaišana
+### 1.2. PostgreSQL datu glabātuves palaišana
 
 Datu glabāšanai tiek izmantots **PostgreSQL**, kas tiek palaists Docker konteinerī.
 
@@ -44,13 +44,13 @@ docker compose up -d postgres
 
 ### 1.3. Datubāzes struktūras izveide
 
-Pielieto projektā iekļautās Alembic migrācijas:
+Pielieto projektā iekļautās datubāzes migrācijas:
 
 ```bash
 uv run alembic upgrade head
 ```
 
-Migrācijas izveidošanai projekta izstrādes laikā tika izmantots:
+Migrācijas izveidošanai projekta izstrādes laikā tika izmantota komanda:
 
 ```bash
 uv run alembic revision --autogenerate -m "datu glabātuves struktūras izveide"
