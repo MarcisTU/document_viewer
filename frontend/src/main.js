@@ -192,7 +192,7 @@ function renderDocuments() {
             <td>${escapeHtml(doc.category)}</td>
             <td>
                 <span class="status ${document.is_active ? "active" : "inactive"}">
-                    ${doc.is_active ? "Aktīvs" : "Neaktīvs"}
+                    ${doc.is_active == "jā" ? "Aktīvs" : "Neaktīvs"}
                 </span>
             </td>
         `;

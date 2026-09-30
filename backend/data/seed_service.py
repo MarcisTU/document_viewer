@@ -8,23 +8,26 @@ from faker import Faker
 
 from dependencies.database import engine
 from models.db import Document, DocumentCreate
-from models.enums import DocumentCategory, FileType, ImportanceLevel
+from models.enums import DocumentCategory, FileType, ImportanceLevel, ActiveStatus
 
 
 fake = Faker()
 
 # Pieņemot dažas gadījuma vērtības
 RESPONSIBLE_UNITS = [
-    "Finance Department",
-    "Human Resources",
-    "IT Department",
-    "Legal Department",
-    "Marketing Department",
-    "Operations Department",
+    "Finanšu nodaļa",
+    "Personāla nodaļa",
+    "IT nodaļa",
+    "Juridiskā nodaļa",
+    "Mārketinga nodaļa",
+    "Operāciju nodaļa",
 ]
 
 
 def generate_documents(count: int = 10) -> list[DocumentCreate]:
+    """
+    Izveido nejaušinātus testa datu dokumentus
+    """
     documents: list[DocumentCreate] = []
 
     for _ in range(count):
@@ -43,7 +46,7 @@ def generate_documents(count: int = 10) -> list[DocumentCreate]:
             reading_time_minutes=randint(1, 120),
             importance=choice(list(ImportanceLevel)),
             category=choice(list(DocumentCategory)),
-            is_active=choice([True, False]),
+            is_active=choice(list(ActiveStatus)),
         )
 
         documents.append(document)
@@ -93,7 +96,6 @@ def parse_documents_xml(xml_data: bytes) -> list[DocumentCreate]:
         }
 
         data["reading_time_minutes"] = int(data["reading_time_minutes"])
-        data["is_active"] = data["is_active"].lower() == "true"
 
         document = DocumentCreate.model_validate(data)
         documents.append(document)

@@ -1,18 +1,26 @@
 from enum import Enum
 
 
+"""
+Visas kategoriskās vērtības atribūtu nosaukumus iekš programmatūras standartizē uz angļu valodu 
+"""
 class ImportanceLevel(str, Enum):
-    LOW = "low"
-    MEDIUM = "medium"
-    HIGH = "high"
-    CRITICAL = "critical"
+    LOW = "zems"
+    MEDIUM = "vidējs"
+    HIGH = "augsts"
+    CRITICAL = "kritisks"
 
 
 class DocumentCategory(str, Enum):
-    PUBLIC = "public"
-    INTERNAL = "internal"
-    RESTRICTED = "restricted"
-    CONFIDENTIAL = "confidential"
+    PUBLIC = "publisks"
+    INTERNAL = "iekšējs"
+    RESTRICTED = "ierobežotas pieejamības"
+    CONFIDENTIAL = "konfidenciāls"
+
+
+class ActiveStatus(str, Enum):
+    YES = "jā"
+    NO = "nē"
 
 
 """
